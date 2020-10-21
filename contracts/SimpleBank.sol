@@ -92,7 +92,7 @@ contract SimpleBank {
            to the user attempting to withdraw. 
            return the user's balance.*/
            
-           assert(balances[msg.sender] >= withdrawAmount);
+           require(balances[msg.sender] >= withdrawAmount);
            balances[msg.sender] -= withdrawAmount;
            emit LogWithdrawal(msg.sender, withdrawAmount, balances[msg.sender]);
            return balances[msg.sender];
